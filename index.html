@@ -73,18 +73,22 @@
     </div>
 
     <script>
-        let tg = window.Telegram.WebApp;
-        tg.expand();
+    let tg = window.Telegram.WebApp;
+    tg.expand(); // Ekranı tam aç
 
-        function showAd() {
-            if (typeof show_10727336 === 'function') {
-                show_10727336().then(() => {
-                    alert("Təbriklər qaqam! Reklam izlənildi, xalın tezliklə hesablanacaq.");
-                });
-            } else {
-                alert("Reklam yüklənir, bir az gözlə...");
-            }
+    function showAd() {
+        // Monetag-ın reklam funksiyasını dəqiq çağırırıq
+        if (typeof show_10727336 === 'function') {
+            show_10727336().then(() => {
+                alert("Təbriklər qaqam! Reklam izlənildi, balansın yenilənəcək.");
+                // Gələcəkdə bota məlumat göndərmək üçün:
+                // tg.sendData("reklam_izlendi"); 
+            }).catch((err) => {
+                alert("Reklamda xəta baş verdi, bir az sonra yoxla.");
+                console.error(err);
+            });
+        } else {
+            alert("Reklam hələ yüklənməyib. Zəhmət olmasa 5-10 saniyə gözlə qaqam.");
         }
-    </script>
-</body>
-</html>
+    }
+    
