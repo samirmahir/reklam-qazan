@@ -1,27 +1,21 @@
-<!-- Monetag-ın Reklam Kodunu bura ilə əvəz et -->
 <script src="https://alwingulla.com" data-zone="10727336" data-sdk="show_10727336"></script>
 
 <script>
     let tg = window.Telegram.WebApp;
     if (tg) {
-        tg.expand(); // Ekranı tam aç
+        tg.expand();
     }
 
     function showAd() {
-        // Monetag SDK-nın yüklənib-yüklənmədiyini yoxlayırıq
         if (typeof show_10727336 === 'function') {
             show_10727336().then(() => {
-                // Reklam uğurla göstərildi
-                alert("Təbriklər qaqam! Reklam izlənildi, balansın yenilənəcək.");
-                // Bura balans artırma kodlarını əlavə edə bilərsən
+                alert("Təbriklər qaqam! Reklam izlənildi.");
             }).catch((err) => {
-                // Reklam yüklənməyəndə və ya istifadəçi bağlayanda
-                alert("Reklam hələ hazır deyil və ya xəta baş verdi.");
-                console.error("Xəta:", err);
+                alert("Reklam yüklənmədi, bir az gözlə.");
+                console.error(err);
             });
         } else {
-            // Əgər script hələ tam yüklənməyibsə
-            alert("Reklam yüklənir... 5 saniyə sonra yenidən bas qaqam.");
+            alert("Reklam hələ tam hazır deyil...");
         }
     }
 </script>
